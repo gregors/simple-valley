@@ -1,0 +1,30 @@
+{
+  "name": "simple-valley",
+  "version": "0.0.1",
+  "description": "Simple Validations for objects",
+  "main": "dist/index.js",
+  "author": "Gregory Ostermayr",
+  "keywords": ["validation"],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gregors/simple_valley.git"
+  },
+  "scripts": {
+    "build": "babel --out-dir dist src --verbose",
+    "prepublish": "yarn run build",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.13.1",
+    "@babel/node": "^7.13.0",
+    "@babel/plugin-transform-runtime": "^7.13.7",
+    "@babel/preset-env": "^7.13.5",
+    "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.13.7"
+  }
+}
