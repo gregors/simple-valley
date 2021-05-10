@@ -52,5 +52,19 @@ describe('validateNotBlank', () => {
       expect(validator.messages[0].field).toEqual('title')
       expect(validator.messages[0].type).toEqual('blank')
     })
+
+    describe('with custom message', () => {
+      it('adds message', () => {
+        let validator = newValidator({title: ''})
+        expect(validator.messages.length).toBe(0)
+        validator = validateNotBlank(validator, 'title', { message: '{key} is missing' })
+
+        expect(validator.messages.length).toBe(1)
+        expect(validator.messages[0].message).toEqual('title is missing')
+        expect(validator.messages[0].field).toEqual('title')
+        expect(validator.messages[0].type).toEqual('blank')
+      })
+    })
+
   })
 })

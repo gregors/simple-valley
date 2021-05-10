@@ -1,11 +1,15 @@
-export default function validateRequired(v, fields) {
+import { formatMessage } from './messageFormatter'
+
+export default function validateRequired(v, fields, options) {
+  const { message } = options || {}
+
   fields = [fields].flatMap(x => x)
   const messages = v.messages
 
    const valid = fields.every(field => {
     if(v.data.hasOwnProperty(field)) return true
 
-    v.messages.push(addRequiredMessage(field))
+    v.messages.push(addRequiredMessage(field, message))
     return false
   })
 
@@ -14,6 +18,8 @@ export default function validateRequired(v, fields) {
   return v
 }
 
-function addRequiredMessage(field) {
-  return {field, type: 'required',  message: `${field} required` }
+function addRequiredMessage(field, customMessage) {
+  const defaultMessage = `${field} required`
+  const message = formatMessage(field, defaultMessage, customMessage)
+  return {field, type: 'required',  message }
 }

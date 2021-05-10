@@ -43,5 +43,19 @@ describe('validateRequired', () => {
       expect(validator.messages[0].field).toEqual('title')
       expect(validator.messages[0].type).toEqual('required')
     })
+
+    describe('with custom message', () => {
+      it('adds message', () => {
+        let validator = newValidator({})
+        expect(validator.messages.length).toBe(0)
+
+        validator = validateRequired(validator, 'title', { message: "missing {key}" })
+
+        expect(validator.messages.length).toBe(1)
+        expect(validator.messages[0].message).toEqual('missing title')
+        expect(validator.messages[0].field).toEqual('title')
+        expect(validator.messages[0].type).toEqual('required')
+      })
+    })
   })
 })
