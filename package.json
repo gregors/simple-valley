@@ -1,10 +1,10 @@
 {
   "name": "simple-valley",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Simple Validations for objects",
   "main": "dist/index.js",
   "author": "Gregory Ostermayr",
-  "keywords": ["validation"],
+  "keywords": ["validation", "validator"],
   "author": "",
   "license": "ISC",
   "repository": {
