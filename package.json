@@ -1,6 +1,6 @@
 {
   "name": "simple-valley",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Simple Validations for objects",
   "main": "dist/index.js",
   "author": "Gregory Ostermayr",
