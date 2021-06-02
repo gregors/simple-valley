@@ -1,7 +1,8 @@
 {
   "name": "simple-valley",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Simple Validations for objects",
+  "homepage": "https://github.com/gregors/simple-valley",
   "main": "dist/index.js",
   "author": "Gregory Ostermayr",
   "keywords": ["validation", "validator"],
@@ -9,7 +10,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git@github.com:gregors/simple_valley.git"
+    "url": "git+https://@github.com:gregors/simple_valley.git"
   },
   "scripts": {
     "build": "babel --out-dir dist src --verbose",
