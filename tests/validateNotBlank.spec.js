@@ -3,6 +3,15 @@ import validateNotBlank from '@/validateNotBlank'
 
 describe('validateNotBlank', () => {
   describe('with valid data', () => {
+    describe('with a number', () => {
+      it('sets isValid to true', () => {
+        let validator = newValidator({age: 0 })
+
+        validator = validateNotBlank(validator, 'age')
+
+        expect(validator.isValid).toBe(true)
+      })
+    })
 
     it('sets isValid to true', () => {
       let validator = newValidator({title: 'hello' })
