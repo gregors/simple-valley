@@ -10,7 +10,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://@github.com:gregors/simple_valley.git"
+    "url": "git+https://@github.com:gregors/simple-valley.git"
   },
   "scripts": {
     "build": "babel --out-dir dist src --verbose",
