@@ -18,14 +18,14 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@babel/cli": "^7.13.0",
-    "@babel/core": "^7.13.1",
-    "@babel/node": "^7.13.0",
-    "@babel/plugin-transform-runtime": "^7.13.7",
-    "@babel/preset-env": "^7.13.5",
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/node": "^7.14.7",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.8",
     "jest": "^26.6.3"
   },
   "dependencies": {
-    "@babel/runtime": "^7.13.7"
+    "@babel/runtime": "^7.14.8"
   }
 }
