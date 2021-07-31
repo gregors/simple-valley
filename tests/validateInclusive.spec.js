@@ -22,8 +22,7 @@ describe('validateInclusion', () => {
     })
   })
 
-  describe('with choicesvalid data', () => {
-
+  describe('with an invalid choice', () => {
     it('sets isValid to false', () => {
       let validator = newValidator({title: 'PM' })
 

@@ -8,18 +8,13 @@ export default function validateInclusion(v, fields, options) {
   const { message, choices=[] } = options || {}
 
   fields = [fields].flatMap(x => x)
-  const messages = v.messages
+  const messages = fields
+    .filter(field => !check(v.data[field], choices) )
+    .map(field => addMessage(field, v.data[field], message) )
 
-  const valid = fields.every(field => {
-    const value = v.data[field]
+  v.messages = v.messages.concat(messages)
 
-    if(check(value, choices)) {
-      return true
-    }
-
-    v.messages.push(addMessage(field, value, message))
-    return false
-  })
+  const valid = messages.length == 0
 
   v.isValid = v.isValid && valid
 
