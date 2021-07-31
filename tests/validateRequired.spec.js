@@ -5,7 +5,7 @@ describe('validateRequired', () => {
   describe('with valid data', () => {
 
     it('sets isValid to true', () => {
-      let validator = newValidator({title: 'hello' })
+      let validator = newValidator({title: undefined })
 
       validator = validateRequired(validator, 'title')
 
