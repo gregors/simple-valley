@@ -3,20 +3,13 @@ import { formatMessage } from './messageFormatter'
 export default function validateIsNumber(v, fields, options) {
   const { message } = options || {}
 
-  fields = [fields].flatMap(x => x)
-  const messages = v.messages
+  const messages = [fields]
+    .flatMap(x => x)
+    .filter(field => invalid(v.data[field]))
+    .map(field => addMessage(field, message))
 
-   const valid = fields.every(field => {
-     const value = v.data[field]
-
-     if(invalid(value)) {
-       v.messages.push(addMessage(field, message))
-       return false
-     }
-
-     return true
-  })
-
+  v.messages = v.messages.concat(messages)
+  const valid = messages.length == 0
   v.isValid = v.isValid && valid
 
   return v

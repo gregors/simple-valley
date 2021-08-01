@@ -1,14 +1,15 @@
 import { formatMessage } from './messageFormatter'
 
-export default function validateEmail(v, field, options) {
+export default function validateEmail(v, fields, options) {
   const { message } = options || {}
 
-  const valid = isEmail(v.data[field])
+  const messages = [fields]
+    .flatMap(x => x)
+    .filter(field => invalid(v.data[field]) )
+    .map(field => addMessage(field, message) )
 
-  if(!valid) {
-    v.messages.push(addMessage(field, message))
-  }
-
+  v.messages = v.messages.concat(messages)
+  const valid = messages.length == 0
   v.isValid = v.isValid && valid
 
   return v
@@ -21,7 +22,7 @@ function addMessage(field, customMessage) {
   return { field, type: 'invalid_email',  message }
 }
 
-function isEmail(data) {
+function invalid(data) {
   const regex = new RegExp('^\\S+@\\S+\.\\S+$')
-  return regex.test(data)
+  return !regex.test(data)
 }

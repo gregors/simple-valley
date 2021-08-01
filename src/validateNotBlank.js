@@ -3,18 +3,13 @@ import { formatMessage } from './messageFormatter'
 export default function validateNotBlank(v, fields, options) {
   const { message } = options || {}
 
-  fields = [fields].flatMap(x => x)
-  const messages = v.messages
+  const messages = [fields]
+    .flatMap(x => x)
+    .filter(field => blank(v.data[field]))
+    .map(field => addMessage(field, message))
 
-   const valid = fields.every(field => {
-     if(blank(v.data[field])) {
-       v.messages.push(addMessage(field, message))
-       return false
-     }
-
-     return true
-  })
-
+  v.messages = v.messages.concat(messages)
+  const valid = messages.length == 0
   v.isValid = v.isValid && valid
 
   return v
