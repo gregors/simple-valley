@@ -3,22 +3,23 @@ import { formatMessage } from './messageFormatter'
 export default function validateRequired(v, fields, options) {
   const { message } = options || {}
 
-  fields = [fields].flatMap(x => x)
-  const messages = v.messages
+  const messages = [fields]
+    .flatMap(x => x)
+    .filter(field => invalid(v.data, field))
+    .map(field => addMessage(field, message))
 
-   const valid = fields.every(field => {
-    if(v.data.hasOwnProperty(field)) return true
-
-    v.messages.push(addRequiredMessage(field, message))
-    return false
-  })
-
+  v.messages = v.messages.concat(messages)
+  const valid = messages.length == 0
   v.isValid = v.isValid && valid
 
   return v
 }
 
-function addRequiredMessage(field, customMessage) {
+function invalid(data, field) {
+  return !data.hasOwnProperty(field)
+}
+
+function addMessage(field, customMessage) {
   const defaultMessage = `${field} required`
   const message = formatMessage(field, defaultMessage, customMessage)
   return {field, type: 'required',  message }
