@@ -1,5 +1,3 @@
-import { formatMessage } from './messageFormatter'
-
 import validateMaxNumber from './validateMaxNumber'
 import validateMinNumber from './validateMinNumber'
 import validateIsNumber from './validateIsNumber'
