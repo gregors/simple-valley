@@ -7,6 +7,7 @@
 * [validateNumber](#validateNumber)
 * [validateInclusion](#validateInclusion)
 * [validateUrl](#validateUrl)
+* [validateLength](#validateLength)
 
 
 ### validateRequired
@@ -96,4 +97,18 @@ let validator = newValidator({url: 'https/github.com/gregors' })
 validator = validateUrl(validator, 'url')
 validator.isValid // false
 validator.messages[0] // { field: 'url', type: 'invalid_url', message: 'invalid url' }
+```
+
+### validateLength
+  Validates the field by calling the '.length' method and comparing it with the provided min and max options.
+
+```javascript
+let validator = newValidator({name: 'gregors' })
+validator = validateLength(validator, 'name', {min: 4, max: 20})
+validator.isValid // true
+
+let validator = newValidator({scores: ['0', '100', '50'] })
+validator = validateLength(validator, 'scores', {min: 4})
+validator.isValid // false
+validator.messages[0] // { field: 'scores', type: 'length_min', message: 'scores not min length ' }
 ```
