@@ -2,6 +2,16 @@ import newValidator from '@/validator'
 import validateLength from '@/validateLength'
 
 describe('validateLength', () => {
+  describe('with subkeys', () => {
+    it('validates', () => {
+      let validator = newValidator({test: {scores: ['0', '100', '50'] }})
+
+      validator = validateLength(validator, 'test.scores', {min: 2})
+
+      expect(validator.isValid).toBe(true)
+    })
+  })
+
   describe('with an array ', () => {
     describe('with with valid data', () => {
       it('sets isValid to true', () => {

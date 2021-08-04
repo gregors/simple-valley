@@ -2,6 +2,16 @@ import newValidator from '@/validator'
 import validateInclusion from '@/validateInclusion'
 
 describe('validateInclusion', () => {
+  describe('with subkeys', () => {
+    it('validates', () => {
+      let validator = newValidator({person: {title: 'DEV' }})
+
+      validator = validateInclusion(validator, 'person.title', { choices: ['DEV']})
+
+      expect(validator.isValid).toBe(true)
+    })
+  })
+
   describe('with valid data', () => {
 
     it('sets isValid to true', () => {

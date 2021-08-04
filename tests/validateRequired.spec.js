@@ -2,6 +2,16 @@ import newValidator from '@/validator'
 import validateRequired from '@/validateRequired'
 
 describe('validateRequired', () => {
+  describe('with subkeys', () => {
+    it('validates', () => {
+      let validator = newValidator({ person: {title: undefined }})
+
+      validator = validateRequired(validator, 'person.title')
+
+      expect(validator.isValid).toBe(true)
+    })
+  })
+
   describe('with valid data', () => {
 
     it('sets isValid to true', () => {

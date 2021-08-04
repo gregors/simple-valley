@@ -1,11 +1,12 @@
 import { formatMessage } from './messageFormatter'
+import { dig } from './dig'
 
 export default function validateNotBlank(v, fields, options) {
   const { message } = options || {}
 
   const messages = [fields]
-    .flatMap(x => x)
-    .filter(field => blank(v.data[field]))
+    .flat()
+    .filter(field => blank(dig(v.data, field)))
     .map(field => addMessage(field, message))
 
   v.messages = v.messages.concat(messages)

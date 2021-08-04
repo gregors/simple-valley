@@ -7,11 +7,11 @@ export default function validateNumber(v, fields, options) {
 
   v = validateIsNumber(v, fields, options)
 
-  if(max) {
+  if(max !== undefined && max !== null) {
     v = validateMaxNumber(v, fields, options)
   }
 
-  if(min) {
+  if(min !== undefined && min !== null ) {
     v = validateMinNumber(v, fields, options)
   }
 
