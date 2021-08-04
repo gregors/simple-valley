@@ -1,11 +1,12 @@
 import { formatMessage } from './messageFormatter'
+import { dig } from './dig'
 
 export default function validateMinNumber(v, fields, options) {
   const { message, min } = options || {}
 
   const messages = [fields]
-    .flatMap(x => x)
-    .filter(field => invalid(v.data[field], min))
+    .flat()
+    .filter(field => invalid(dig(v.data, field), min))
     .map(field => addMessage(field, message))
 
   v.messages = v.messages.concat(messages)
@@ -23,5 +24,6 @@ function addMessage(field, customMessage) {
 }
 
 function invalid(value, min) {
+  if( isNaN(value) || isNaN(min)) return true
   return value < min
 }

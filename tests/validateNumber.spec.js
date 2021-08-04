@@ -12,6 +12,16 @@ describe('validateNumber', () => {
     })
   })
 
+  describe('with subkeys', () => {
+    it('validates', () => {
+      let validator = newValidator({person: {age: 0 } })
+
+      validator = validateNumber(validator, 'person.age', {min: 0, max: 5})
+
+      expect(validator.isValid).toBe(true)
+    })
+  })
+
   describe('with max option', () => {
     describe('with valid data', () => {
       it('sets isValid to true', () => {

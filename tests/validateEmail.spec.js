@@ -2,6 +2,15 @@ import newValidator from '@/validator'
 import validateEmail from '@/validateEmail'
 
 describe('validateEmail', () => {
+  describe('with subkeys', () => {
+    it('validates', () => {
+      let validator = newValidator({person: { email: 'gregors@example.com' }})
+      validator = validateEmail(validator, 'person.email')
+
+      expect(validator.isValid).toBe(true)
+    })
+  })
+
   describe('with valid email', () => {
 
     it('sets isValid to true', () => {

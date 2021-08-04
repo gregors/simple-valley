@@ -2,6 +2,15 @@ import newValidator from '@/validator'
 import validateUrl from '@/validateUrl'
 
 describe('validateUrl', () => {
+  describe('with subkeys', () => {
+    it('validates', () => {
+      let validator = newValidator({page: {url: 'https://github.com/gregors' }})
+      validator = validateUrl(validator, 'page.url')
+
+      expect(validator.isValid).toBe(true)
+    })
+  })
+
   describe('with valid url', () => {
 
     it('sets isValid to true', () => {

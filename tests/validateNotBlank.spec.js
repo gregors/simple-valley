@@ -2,6 +2,16 @@ import newValidator from '@/validator'
 import validateNotBlank from '@/validateNotBlank'
 
 describe('validateNotBlank', () => {
+  describe('with subkeys', () => {
+    it('validates', () => {
+      let validator = newValidator({ person: {age: 0 }})
+
+      validator = validateNotBlank(validator, 'person.age')
+
+      expect(validator.isValid).toBe(true)
+    })
+  })
+
   describe('with valid data', () => {
     describe('with a number', () => {
       it('sets isValid to true', () => {

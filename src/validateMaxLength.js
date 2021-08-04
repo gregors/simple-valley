@@ -1,11 +1,12 @@
 import { formatMessage } from './messageFormatter'
+import { dig } from './dig'
 
 export default function validateMaxLength(v, fields, options) {
   const { message, max } = options || {}
 
   const messages = [fields]
-    .flatMap(x => x)
-    .filter(field => invalid(v.data[field], max))
+    .flat()
+    .filter(field => invalid(dig(v.data, field), max))
     .map(field => addMessage(field, message))
 
   v.messages = v.messages.concat(messages)

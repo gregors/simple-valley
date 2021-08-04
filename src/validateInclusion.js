@@ -1,12 +1,13 @@
 import { formatMessage } from './messageFormatter'
+import { dig } from './dig'
 
 export default function validateInclusion(v, fields, options) {
   const { message, choices=[] } = options || {}
 
   const messages = [fields]
-    .flatMap(x => x)
-    .filter(field => invalid(v.data[field], choices) )
-    .map(field => addMessage(field, v.data[field], message) )
+    .flat()
+    .filter(field => invalid(dig(v.data, field), choices))
+    .map(field => addMessage(field, dig(v.data, field), message) )
 
   v.messages = v.messages.concat(messages)
   const valid = messages.length == 0
