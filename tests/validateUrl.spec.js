@@ -11,6 +11,16 @@ describe('validateUrl', () => {
     })
   })
 
+  describe('is immutable', () => {
+    it('doesnt change previous validator', () => {
+      const validator = newValidator({url: 'https/github.com/gregors' })
+      const validator2 = validateUrl(validator, 'url')
+
+      expect(validator.isValid).toBe(true)
+      expect(validator2.isValid).toBe(false)
+    })
+  })
+
   describe('with valid url', () => {
 
     it('sets isValid to true', () => {

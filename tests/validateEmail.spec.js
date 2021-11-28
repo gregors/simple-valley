@@ -11,6 +11,18 @@ describe('validateEmail', () => {
     })
   })
 
+  describe('is immutable', () => {
+    it('doesnt change previous validator', () => {
+      const validator = newValidator({email: 'gregors' })
+      const validator2 = validateEmail(validator, 'email')
+
+      expect(validator.isValid).toBe(true)
+      expect(validator.messages.length).toBe(0)
+      expect(validator2.isValid).toBe(false)
+      expect(validator2.messages.length).toBe(1)
+    })
+  })
+
   describe('with valid email', () => {
 
     it('sets isValid to true', () => {
