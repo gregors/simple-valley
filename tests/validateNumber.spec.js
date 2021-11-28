@@ -22,6 +22,16 @@ describe('validateNumber', () => {
     })
   })
 
+  describe('is immutable', () => {
+    it('doesnt change previous validator', () => {
+      const validator = newValidator({age: 6 })
+      const validator2 = validateNumber(validator, 'age', {max: 5})
+
+      expect(validator.isValid).toBe(true)
+      expect(validator2.isValid).toBe(false)
+    })
+  })
+
   describe('with max option', () => {
     describe('with valid data', () => {
       it('sets isValid to true', () => {

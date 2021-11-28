@@ -4,6 +4,7 @@ import validateIsNumber from './validateIsNumber'
 
 export default function validateNumber(v, fields, options) {
   const { message, max, min } = options || {}
+  v = Object.assign({}, v)
 
   v = validateIsNumber(v, fields, options)
 

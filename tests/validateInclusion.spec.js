@@ -12,6 +12,16 @@ describe('validateInclusion', () => {
     })
   })
 
+  describe('is immutable', () => {
+    it('doesnt change previous validator', () => {
+      const validator = newValidator({title: 'PM' })
+
+      const validator2 = validateInclusion(validator, 'title', { choices: ['DEV']})
+      expect(validator.isValid).toBe(true)
+      expect(validator2.isValid).toBe(false)
+    })
+  })
+
   describe('with valid data', () => {
 
     it('sets isValid to true', () => {

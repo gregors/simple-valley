@@ -12,6 +12,16 @@ describe('validateRequired', () => {
     })
   })
 
+  describe('is immutable', () => {
+    it('doesnt change previous validator', () => {
+      const validator = newValidator({})
+      const validator2 = validateRequired(validator, 'title')
+
+      expect(validator.isValid).toBe(true)
+      expect(validator2.isValid).toBe(false)
+    })
+  })
+
   describe('with valid data', () => {
 
     it('sets isValid to true', () => {

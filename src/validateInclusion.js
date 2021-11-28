@@ -3,6 +3,7 @@ import { dig } from './dig'
 
 export default function validateInclusion(v, fields, options) {
   const { message, choices=[] } = options || {}
+  v = Object.assign({}, v)
 
   const messages = [fields]
     .flat()

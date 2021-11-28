@@ -3,6 +3,7 @@ import validateMinLength from './validateMinLength'
 
 export default function validateLength(v, fields, options) {
   const { message, max, min } = options || {}
+  v = Object.assign({}, v)
 
   if(max !== undefined && max !== null) {
     v = validateMaxLength(v, fields, options)

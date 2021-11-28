@@ -12,6 +12,16 @@ describe('validateNotBlank', () => {
     })
   })
 
+  describe('is immutable', () => {
+    it('doesnt change previous validator', () => {
+      const validator = newValidator({title: ''})
+      const validator2 = validateNotBlank(validator, 'title')
+
+      expect(validator.isValid).toBe(true)
+      expect(validator2.isValid).toBe(false)
+    })
+  })
+
   describe('with valid data', () => {
     describe('with a number', () => {
       it('sets isValid to true', () => {

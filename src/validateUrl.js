@@ -3,6 +3,7 @@ import { dig } from './dig'
 
 export default function validateUrl(v, fields, options) {
   const { message } = options || {}
+  v = Object.assign({}, v)
 
   const messages = [fields]
     .flat()

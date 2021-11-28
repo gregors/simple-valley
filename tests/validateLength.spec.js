@@ -12,6 +12,16 @@ describe('validateLength', () => {
     })
   })
 
+  describe('is immutable', () => {
+    it('doesnt change previous validator', () => {
+      const validator = newValidator({scores: ['0', '100', '50'] })
+      const validator2 = validateLength(validator, 'scores', {min: 4})
+
+      expect(validator.isValid).toBe(true)
+      expect(validator2.isValid).toBe(false)
+    })
+  })
+
   describe('with an array ', () => {
     describe('with with valid data', () => {
       it('sets isValid to true', () => {

@@ -1,12 +1,14 @@
 {
   "name": "simple-valley",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Simple Validations for objects",
   "homepage": "https://github.com/gregors/simple-valley",
   "main": "dist/index.js",
-  "author": "Gregory Ostermayr",
-  "keywords": ["validation", "validator"],
   "author": "",
+  "keywords": [
+    "validation",
+    "validator"
+  ],
   "license": "ISC",
   "repository": {
     "type": "git",
