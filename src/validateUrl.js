@@ -1,4 +1,4 @@
-import { formatMessage } from './messageFormatter'
+import { addMessage } from './message'
 import { updateValidator } from './validator'
 import { dig } from './dig'
 
@@ -9,15 +9,9 @@ export default function validateUrl(v, fields, options) {
   const messages = [fields]
     .flat()
     .filter(field => invalid(dig(v.data, field)))
-    .map(field => addMessage(field, message))
+    .map(field => addMessage(field, message, 'invalid_url'))
 
   return updateValidator(v, messages)
-}
-
-function addMessage(field, message) {
-  message = formatMessage(field, message)
-
-  return { field, type: 'invalid_url',  message }
 }
 
 function invalid(url) {

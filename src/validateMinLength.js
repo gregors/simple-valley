@@ -1,4 +1,4 @@
-import { formatMessage } from './messageFormatter'
+import { addMessage } from './message'
 import { updateValidator } from './validator'
 import { dig } from './dig'
 
@@ -8,15 +8,9 @@ export default function validateMinLength(v, fields, options) {
   const messages = [fields]
     .flat()
     .filter(field => invalid(dig(v.data, field), min))
-    .map(field => addMessage(field, message))
+    .map(field => addMessage(field, message, 'length_min'))
 
   return updateValidator(v, messages)
-}
-
-function addMessage(field, message) {
-  message = formatMessage(field, message)
-
-  return { field, type: 'length_min',  message }
 }
 
 function invalid(value, min) {

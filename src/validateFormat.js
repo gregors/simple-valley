@@ -1,4 +1,4 @@
-import { formatMessage } from './messageFormatter'
+import { addMessage } from './message'
 import { updateValidator } from './validator'
 import { dig } from './dig'
 
@@ -15,12 +15,6 @@ export default function validateFormat(v, fields, options) {
     .map(field => addMessage(field, message, type))
 
   return updateValidator(v, messages)
-}
-
-function addMessage(field, message, type) {
-  message = formatMessage(field, message)
-
-  return { field, type,  message }
 }
 
 function invalid(data, format) {
