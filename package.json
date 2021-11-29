@@ -1,6 +1,6 @@
 {
   "name": "simple-valley",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "Simple Validations for objects",
   "homepage": "https://github.com/gregors/simple-valley",
   "main": "dist/index.js",
