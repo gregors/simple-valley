@@ -50,7 +50,7 @@ describe('validateFormat', () => {
         expect(validator.messages.length).toBe(1)
         expect(validator.messages[0].message).toEqual('name is invalid')
         expect(validator.messages[0].field).toEqual('name')
-        expect(validator.messages[0].type).toEqual('invalid_format')
+        expect(validator.messages[0].type).toEqual('format')
       })
 
       describe('withFormat custom message', () => {

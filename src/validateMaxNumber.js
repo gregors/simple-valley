@@ -2,7 +2,7 @@ import { formatMessage } from './messageFormatter'
 import { dig } from './dig'
 
 export default function validateMaxNumber(v, fields, options) {
-  const { message, max } = options || {}
+  const { message='{key} too large', max } = options || {}
 
   const messages = [fields]
     .flat()
@@ -16,9 +16,8 @@ export default function validateMaxNumber(v, fields, options) {
   return v
 }
 
-function addMessage(field, customMessage) {
-  const defaultMessage = `${field} too large`
-  const message = formatMessage(field, defaultMessage, customMessage)
+function addMessage(field, message) {
+  message = formatMessage(field, message)
 
   return { field, type: 'number_max',  message }
 }

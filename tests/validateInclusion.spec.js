@@ -58,7 +58,7 @@ describe('validateInclusion', () => {
       validator = validateInclusion(validator, 'title', { choices: ['DEV']})
 
       expect(validator.messages.length).toBe(1)
-      expect(validator.messages[0].message).toEqual('PM is not a choice')
+      expect(validator.messages[0].message).toEqual('PM is not a valid choice')
       expect(validator.messages[0].field).toEqual('title')
       expect(validator.messages[0].type).toEqual('inclusion')
     })

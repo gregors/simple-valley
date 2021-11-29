@@ -2,7 +2,7 @@ import { formatMessage } from './messageFormatter'
 import { dig } from './dig'
 
 export default function validateRequired(v, fields, options) {
-  const { message } = options || {}
+  const { message='{key} required' } = options || {}
   v = Object.assign({}, v)
 
   const messages = [fields]
@@ -26,8 +26,7 @@ function invalid(data, field) {
   return !Object.prototype.hasOwnProperty.call(data, field)
 }
 
-function addMessage(field, customMessage) {
-  const defaultMessage = `${field} required`
-  const message = formatMessage(field, defaultMessage, customMessage)
+function addMessage(field, message) {
+  message = formatMessage(field, message)
   return {field, type: 'required',  message }
 }

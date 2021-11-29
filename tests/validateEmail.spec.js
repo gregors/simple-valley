@@ -63,7 +63,7 @@ describe('validateEmail', () => {
       expect(validator.messages.length).toBe(1)
       expect(validator.messages[0].message).toEqual('invalid email')
       expect(validator.messages[0].field).toEqual('email')
-      expect(validator.messages[0].type).toEqual('invalid_email')
+      expect(validator.messages[0].type).toEqual('email')
     })
 
     describe('with custom message', () => {
