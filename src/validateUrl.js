@@ -2,7 +2,7 @@ import { formatMessage } from './messageFormatter'
 import { dig } from './dig'
 
 export default function validateUrl(v, fields, options) {
-  const { message } = options || {}
+  const { message='invalid url' } = options || {}
   v = Object.assign({}, v)
 
   const messages = [fields]
@@ -17,9 +17,8 @@ export default function validateUrl(v, fields, options) {
   return v
 }
 
-function addMessage(field, customMessage) {
-  const defaultMessage = 'invalid url'
-  const message = formatMessage(field, defaultMessage, customMessage)
+function addMessage(field, message) {
+  message = formatMessage(field, message)
 
   return { field, type: 'invalid_url',  message }
 }

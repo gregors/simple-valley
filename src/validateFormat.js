@@ -2,7 +2,10 @@ import { formatMessage } from './messageFormatter'
 import { dig } from './dig'
 
 export default function validateFormat(v, fields, options) {
-  const { withFormat, message, type='invalid_format' } = options || {}
+  const { withFormat,
+    message='{key} is invalid',
+    type='format' } = options || {}
+
   v = Object.assign({}, v)
 
   const messages = [fields]
@@ -17,9 +20,8 @@ export default function validateFormat(v, fields, options) {
   return v
 }
 
-function addMessage(field, customMessage, type) {
-  const defaultMessage = `${field} is invalid`
-  const message = formatMessage(field, defaultMessage, customMessage)
+function addMessage(field, message, type) {
+  message = formatMessage(field, message)
 
   return { field, type,  message }
 }

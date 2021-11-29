@@ -2,7 +2,7 @@ import { formatMessage } from './messageFormatter'
 import { dig } from './dig'
 
 export default function validateMinNumber(v, fields, options) {
-  const { message, min } = options || {}
+  const { message='{key} too small', min } = options || {}
 
   const messages = [fields]
     .flat()
@@ -16,9 +16,8 @@ export default function validateMinNumber(v, fields, options) {
   return v
 }
 
-function addMessage(field, customMessage) {
-  const defaultMessage = `${field} too small`
-  const message = formatMessage(field, defaultMessage, customMessage)
+function addMessage(field, message) {
+  message = formatMessage(field, message)
 
   return { field, type: 'number_min',  message }
 }

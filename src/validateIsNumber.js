@@ -2,7 +2,7 @@ import { formatMessage } from './messageFormatter'
 import { dig } from './dig'
 
 export default function validateIsNumber(v, fields, options) {
-  const { message } = options || {}
+  const { message='{key} is not a number' } = options || {}
 
   const messages = [fields]
     .flat()
@@ -16,11 +16,10 @@ export default function validateIsNumber(v, fields, options) {
   return v
 }
 
-function addMessage(field, customMessage) {
-  const defaultMessage = `${field} is not a number`
-  const message = formatMessage(field, defaultMessage, customMessage)
+function addMessage(field, message) {
+  message = formatMessage(field, message)
 
-  return { field, type: 'number_nan',  message }
+  return { field, type: 'is_number',  message }
 }
 
 function invalid(value) {

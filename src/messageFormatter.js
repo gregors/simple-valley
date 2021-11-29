@@ -1,3 +1,3 @@
-export function formatMessage(field, defaultMessage, custom) {
-  return custom ? custom.replace('{key}', field) : defaultMessage
+export function formatMessage(field, message) {
+  return message.replace('{key}', field)
 }

@@ -2,7 +2,7 @@ import { formatMessage } from './messageFormatter'
 import { dig } from './dig'
 
 export default function validateMaxLength(v, fields, options) {
-  const { message, max } = options || {}
+  const { message='{key} over max length', max } = options || {}
 
   const messages = [fields]
     .flat()
@@ -16,9 +16,8 @@ export default function validateMaxLength(v, fields, options) {
   return v
 }
 
-function addMessage(field, customMessage) {
-  const defaultMessage = `${field} over max length`
-  const message = formatMessage(field, defaultMessage, customMessage)
+function addMessage(field, message) {
+  message = formatMessage(field, message)
 
   return { field, type: 'length_max',  message }
 }
