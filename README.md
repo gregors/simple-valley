@@ -8,6 +8,7 @@
 * [validateInclusion](#validateInclusion)
 * [validateUrl](#validateUrl)
 * [validateLength](#validateLength)
+* [validateFormat](#validateFormat)
 
 
 ### validateRequired
@@ -111,4 +112,18 @@ let validator = newValidator({scores: ['0', '100', '50'] })
 validator = validateLength(validator, 'scores', {min: 4})
 validator.isValid // false
 validator.messages[0] // { field: 'scores', type: 'length_min', message: 'scores not min length ' }
+```
+
+### validateFormat
+  Validates the field by comparing the field with the regular expression provided as part of the withFormat option.
+
+```javascript
+let validator = newValidator({name: 'gregors' })
+validator = validateFormat(validator, 'name', {withFormat: /[a-z]+/})
+validator.isValid // true
+
+let validator = newValidator({name: 'GREGORS' })
+validator = validateFormat(validator, 'name', {withFormat: /[a-z]+/})
+validator.isValid // false
+validator.messages[0] // { field: 'name', type: 'invalid_format', message: 'name is invalid' }
 ```
