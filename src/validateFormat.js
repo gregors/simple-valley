@@ -1,4 +1,5 @@
 import { formatMessage } from './messageFormatter'
+import { updateValidator } from './validator'
 import { dig } from './dig'
 
 export default function validateFormat(v, fields, options) {
@@ -13,11 +14,7 @@ export default function validateFormat(v, fields, options) {
     .filter(field => invalid(dig(v.data,field), withFormat))
     .map(field => addMessage(field, message, type))
 
-  v.messages = v.messages.concat(messages)
-  const valid = messages.length == 0
-  v.isValid = v.isValid && valid
-
-  return v
+  return updateValidator(v, messages)
 }
 
 function addMessage(field, message, type) {
