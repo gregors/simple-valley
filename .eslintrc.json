@@ -1,0 +1,25 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "es2021": true
+    },
+    "extends": [
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+    },
+    "parser": "@babel/eslint-parser",
+    "plugins": [
+      "@babel"
+    ],
+    "rules": {
+      "semi": ["error", "never"],
+      "quotes": ["error", "single"],
+      "no-tabs": ["error"],
+      "space-in-parens": ["error", "never"],
+      "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+    }
+}

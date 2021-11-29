@@ -23,7 +23,7 @@ export default function validateRequired(v, fields, options) {
 }
 
 function invalid(data, field) {
-  return !data.hasOwnProperty(field)
+  return !Object.prototype.hasOwnProperty.call(data, field)
 }
 
 function addMessage(field, customMessage) {

@@ -24,6 +24,6 @@ function addMessage(field, customMessage) {
 }
 
 function invalid(value, min) {
-  if( isNaN(value) || isNaN(min)) return true
+  if(isNaN(value) || isNaN(min)) return true
   return value < min
 }

@@ -26,7 +26,7 @@ function addMessage(field, customMessage) {
 
 function blank(data) {
   const  whitespce = /^\s*$/
-  if(!Boolean(data) && data != 0) return true
+  if(!data && data != 0) return true
   if(whitespce.test(data)) return true
 
   return false

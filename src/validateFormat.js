@@ -7,8 +7,8 @@ export default function validateFormat(v, fields, options) {
 
   const messages = [fields]
     .flat()
-    .filter(field => invalid(dig(v.data,field), withFormat ))
-    .map(field => addMessage(field, message, type) )
+    .filter(field => invalid(dig(v.data,field), withFormat))
+    .map(field => addMessage(field, message, type))
 
   v.messages = v.messages.concat(messages)
   const valid = messages.length == 0
