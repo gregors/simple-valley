@@ -8,7 +8,7 @@ export default function validateInclusion(v, fields, options) {
   const messages = [fields]
     .flat()
     .filter(field => invalid(dig(v.data, field), choices))
-    .map(field => addMessage(field, dig(v.data, field), message) )
+    .map(field => addMessage(field, dig(v.data, field), message))
 
   v.messages = v.messages.concat(messages)
   const valid = messages.length == 0

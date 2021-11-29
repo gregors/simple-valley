@@ -24,6 +24,6 @@ function addMessage(field, customMessage) {
 }
 
 function invalid(value, max) {
-  if( isNaN(value) || isNaN(max)) return true
+  if(isNaN(value) || isNaN(max)) return true
   return value > max
 }

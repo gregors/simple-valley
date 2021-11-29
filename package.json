@@ -1,6 +1,6 @@
 {
   "name": "simple-valley",
-  "version": "0.12.1",
+  "version": "0.13.0",
   "description": "Simple Validations for objects",
   "homepage": "https://github.com/gregors/simple-valley",
   "main": "dist/index.js",
@@ -17,14 +17,18 @@
   "scripts": {
     "build": "babel --out-dir dist src --verbose",
     "prepublish": "yarn run build",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint --cache ./src"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.14.8",
+    "@babel/eslint-parser": "^7.16.3",
+    "@babel/eslint-plugin": "^7.14.5",
     "@babel/node": "^7.14.7",
     "@babel/plugin-transform-runtime": "^7.14.5",
     "@babel/preset-env": "^7.14.8",
+    "eslint": "^8.3.0",
     "jest": "^26.6.3"
   },
   "dependencies": {
