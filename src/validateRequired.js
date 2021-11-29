@@ -1,4 +1,4 @@
-import { formatMessage } from './messageFormatter'
+import { addMessage } from './message'
 import { updateValidator } from './validator'
 import { dig } from './dig'
 
@@ -14,16 +14,11 @@ export default function validateRequired(v, fields, options) {
       const data = keys.length > 1 ? dig(v.data, keys[0]) :  v.data
       return invalid(data, key)
     })
-    .map(field => addMessage(field, message))
+    .map(field => addMessage(field, message, 'required'))
 
   return updateValidator(v, messages)
 }
 
 function invalid(data, field) {
   return !Object.prototype.hasOwnProperty.call(data, field)
-}
-
-function addMessage(field, message) {
-  message = formatMessage(field, message)
-  return {field, type: 'required',  message }
 }

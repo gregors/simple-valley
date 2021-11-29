@@ -1,4 +1,4 @@
-import { formatMessage } from './messageFormatter'
+import { addMessage } from './message'
 import { updateValidator } from './validator'
 import { dig } from './dig'
 
@@ -8,15 +8,9 @@ export default function validateMinNumber(v, fields, options) {
   const messages = [fields]
     .flat()
     .filter(field => invalid(dig(v.data, field), min))
-    .map(field => addMessage(field, message))
+    .map(field => addMessage(field, message, 'number_min'))
 
   return updateValidator(v, messages)
-}
-
-function addMessage(field, message) {
-  message = formatMessage(field, message)
-
-  return { field, type: 'number_min',  message }
 }
 
 function invalid(value, min) {

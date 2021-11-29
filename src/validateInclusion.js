@@ -1,4 +1,4 @@
-import { formatMessage } from './messageFormatter'
+import { addMessage } from './message'
 import { updateValidator } from './validator'
 import { dig } from './dig'
 
@@ -9,15 +9,16 @@ export default function validateInclusion(v, fields, options) {
   const messages = [fields]
     .flat()
     .filter(field => invalid(dig(v.data, field), choices))
-    .map(field => addMessage(field, dig(v.data,field), message))
+    .map(field => customMessage(field, dig(v.data,field), message))
 
   return updateValidator(v, messages)
 }
 
-function addMessage(field, data, message) {
-  message = formatMessage(data, message)
+function customMessage(field, data, message) {
+  message = addMessage(data, message, 'inclusion')
+  message.field = field
 
-  return { field, type: 'inclusion',  message }
+  return message
 }
 
 function invalid(value, choices) {

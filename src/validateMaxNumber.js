@@ -1,4 +1,4 @@
-import { formatMessage } from './messageFormatter'
+import { addMessage } from './message'
 import { updateValidator } from './validator'
 import { dig } from './dig'
 
@@ -8,15 +8,9 @@ export default function validateMaxNumber(v, fields, options) {
   const messages = [fields]
     .flat()
     .filter(field => invalid(dig(v.data, field), max))
-    .map(field => addMessage(field, message))
+    .map(field => addMessage(field, message, 'number_max'))
 
   return updateValidator(v, messages)
-}
-
-function addMessage(field, message) {
-  message = formatMessage(field, message)
-
-  return { field, type: 'number_max',  message }
 }
 
 function invalid(value, max) {
