@@ -19,6 +19,7 @@
     "url": "git+https://@github.com:gregors/simple-valley.git"
   },
   "scripts": {
+    "console": "./console.sh",
     "test": "node --experimental-vm-modules node_modules/.bin/jest",
     "lint": "eslint --cache ./src"
   },
