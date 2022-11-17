@@ -1,5 +1,5 @@
-import validateMaxLength from './validateMaxLength'
-import validateMinLength from './validateMinLength'
+import validateMaxLength from './validateMaxLength.js'
+import validateMinLength from './validateMinLength.js'
 
 export default function validateLength(v, fields, options) {
   const { max, min } = options || {}

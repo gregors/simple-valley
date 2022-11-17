@@ -127,3 +127,6 @@ validator = validateFormat(validator, 'name', {withFormat: /[a-z]+/})
 validator.isValid // false
 validator.messages[0] // { field: 'name', type: 'invalid_format', message: 'name is invalid' }
 ```
+
+
+https://stackoverflow.com/questions/57915921/how-do-i-get-jest-to-to-work-with-es6-dependencies

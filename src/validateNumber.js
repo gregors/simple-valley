@@ -1,6 +1,6 @@
-import validateMaxNumber from './validateMaxNumber'
-import validateMinNumber from './validateMinNumber'
-import validateIsNumber from './validateIsNumber'
+import validateMaxNumber from './validateMaxNumber.js'
+import validateMinNumber from './validateMinNumber.js'
+import validateIsNumber from './validateIsNumber.js'
 
 export default function validateNumber(v, fields, options) {
   const { max, min } = options || {}

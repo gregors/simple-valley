@@ -1,5 +1,5 @@
-import newValidator from '@/validator'
-import validateEmail from '@/validateEmail'
+import newValidator from '../src/validator'
+import validateEmail from '../src/validateEmail'
 
 describe('validateEmail', () => {
   describe('with subkeys', () => {

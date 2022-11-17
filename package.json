@@ -3,11 +3,15 @@
   "version": "0.16.0",
   "description": "Simple Validations for objects",
   "homepage": "https://github.com/gregors/simple-valley",
-  "main": "dist/index.js",
-  "author": "",
+  "main": "src/index.js",
+  "type": "module",
+  "author": "Gregory Ostermayr",
   "keywords": [
     "validation",
-    "validator"
+    "form validation",
+    "input validation",
+    "validator",
+    "library"
   ],
   "license": "ISC",
   "repository": {
@@ -15,23 +19,11 @@
     "url": "git+https://@github.com:gregors/simple-valley.git"
   },
   "scripts": {
-    "build": "babel --out-dir dist src --verbose",
-    "prepublish": "yarn run build",
-    "test": "jest",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
     "lint": "eslint --cache ./src"
   },
   "devDependencies": {
-    "@babel/cli": "^7.14.8",
-    "@babel/core": "^7.14.8",
-    "@babel/eslint-parser": "^7.16.3",
-    "@babel/eslint-plugin": "^7.14.5",
-    "@babel/node": "^7.14.7",
-    "@babel/plugin-transform-runtime": "^7.14.5",
-    "@babel/preset-env": "^7.14.8",
     "eslint": "^8.3.0",
-    "jest": "^26.6.3"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.14.8"
+    "jest": "^29.3.1"
   }
 }

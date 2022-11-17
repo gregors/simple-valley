@@ -1,5 +1,5 @@
-import newValidator from '@/validator'
-import validateInclusion from '@/validateInclusion'
+import newValidator from '../src/validator'
+import validateInclusion from '../src/validateInclusion'
 
 describe('validateInclusion', () => {
   describe('with subkeys', () => {

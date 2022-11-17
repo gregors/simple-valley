@@ -1,5 +1,5 @@
-import newValidator from '@/validator'
-import validateFormat from '@/validateFormat'
+import newValidator from '../src/validator'
+import validateFormat from '../src/validateFormat'
 
 describe('validateFormat', () => {
   describe('withFormat subkeys', () => {

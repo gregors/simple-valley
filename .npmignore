@@ -1,9 +1,11 @@
 .DS_Store
 node_modules
-src
 tests
+coverage
 jest.config.js
 babel.config.js
-README.md
 .git
 *.log
+.eslintcache
+.eslintrc.json
+console.sh

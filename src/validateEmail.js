@@ -1,4 +1,4 @@
-import validateFormat from './validateFormat'
+import validateFormat from './validateFormat.js'
 
 export default function validateEmail(v, fields, options) {
   const { message='invalid email' } = options || {}
