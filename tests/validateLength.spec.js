@@ -1,5 +1,5 @@
-import newValidator from '@/validator'
-import validateLength from '@/validateLength'
+import newValidator from '../src/validator'
+import validateLength from '../src/validateLength'
 
 describe('validateLength', () => {
   describe('with subkeys', () => {

@@ -1,6 +1,6 @@
-import { addMessage } from './message'
-import { updateValidator } from './validator'
-import { dig } from './dig'
+import { addMessage } from './message.js'
+import { updateValidator } from './validator.js'
+import { dig } from './dig.js'
 
 export default function validateInclusion(v, fields, options) {
   const { message='{key} is not a valid choice', choices=[] } = options || {}

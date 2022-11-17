@@ -1,5 +1,5 @@
-import newValidator from '@/validator'
-import validateNumber from '@/validateNumber'
+import newValidator from '../src/validator'
+import validateNumber from '../src/validateNumber'
 
 describe('validateNumber', () => {
   describe('with a non-number', () => {

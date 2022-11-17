@@ -1,13 +1,13 @@
-import { addMessage } from './message'
-import { updateValidator } from './validator'
-import { dig } from './dig'
+import { addMessage } from './message.js'
+import { updateValidator } from './validator.js'
+import { dig } from './dig.js'
 
 export default function validateIsNumber(v, fields, options) {
   const { message='{key} is not a number' } = options || {}
 
   const messages = [fields]
     .flat()
-    .filter(field => invalid(dig(v.data,field)))
+    .filter(field => invalid(dig(v.data, field)))
     .map(field => addMessage(field, message, 'is_number'))
 
   return updateValidator(v, messages)

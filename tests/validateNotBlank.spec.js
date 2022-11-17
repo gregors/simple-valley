@@ -1,5 +1,5 @@
-import newValidator from '@/validator'
-import validateNotBlank from '@/validateNotBlank'
+import newValidator from '../src/validator'
+import validateNotBlank from '../src/validateNotBlank'
 
 describe('validateNotBlank', () => {
   describe('with subkeys', () => {

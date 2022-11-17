@@ -1,4 +1,4 @@
-import newValidator from '@/validator'
+import newValidator from '../src/validator'
 
 describe('newValidator', () => {
   describe('with empty data', () => {
