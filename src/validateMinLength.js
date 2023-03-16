@@ -1,5 +1,5 @@
 import { addMessage } from './message.js'
-import { updateValidator } from './validator.js'
+import updateValidator from './validators/updateValidator.js'
 import { dig } from './dig.js'
 
 export default function validateMinLength(v, fields, options) {
